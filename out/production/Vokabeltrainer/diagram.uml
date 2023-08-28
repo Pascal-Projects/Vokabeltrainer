@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="-107.84854834747517" y="92.11361009046777">Node</node>
+    <node x="116.49103658073545" y="301.4641576681157">Fach</node>
+    <node x="-192.02229461044158" y="331.68207211981604">Vokabeltrainer</node>
+    <node x="146.49103658073545" y="-91.38638990953223">Vokabel</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Fach" target="Node" relationship="CREATE">
+      <point x="-124.04033866076665" y="-92.5" />
+      <point x="121.4506979199688" y="180.61361009046777" />
+      <point x="97.0" y="15.0" />
+    </edge>
+    <edge source="Vokabeltrainer" target="Fach" relationship="CREATE">
+      <point x="119.5" y="0.0" />
+      <point x="-129.0" y="18.217914451700295" />
+    </edge>
+    <edge source="Vokabeltrainer" target="Vokabel" relationship="CREATE">
+      <point x="-52.826253737033596" y="-80.5" />
+      <point x="-125.34854834747517" y="-10.886389909532227" />
+      <point x="-99.0" y="-0.0" />
+    </edge>
+    <edge source="Fach" target="Node" relationship="TO_ONE">
+      <point x="-109.04033866076665" y="-92.5" />
+      <point x="136.4506979199688" y="165.61361009046777" />
+      <point x="97.0" y="0.0" />
+    </edge>
+    <edge source="Node" target="Vokabel" relationship="TO_ONE">
+      <point x="97.0" y="-15.0" />
+      <point x="245.49103658073545" y="150.61361009046777" />
+      <point x="-0.0" y="80.5" />
+    </edge>
+    <edge source="Vokabeltrainer" target="Fach" relationship="TO_MANY">
+      <point x="119.5" y="-18.217914451700295" />
+      <point x="-129.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="1.0" showDependencies="true" x="91.0" y="200.5" />
+  <SelectedNodes>
+    <node>Vokabel</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

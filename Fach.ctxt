@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=Fach
+comment0.text=\r\n\ @author\ Pascal\r\n
 comment1.params=pLimit
 comment1.target=Fach(int)
 comment2.params=pVokabel

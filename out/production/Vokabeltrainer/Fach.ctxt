@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Fach
+comment0.text=\r\n\ @author\ Pascal\r\n
+comment1.params=pLimit
+comment1.target=Fach(int)
+comment2.params=pVokabel
+comment2.target=void\ VokabelHinzuf\u00FCgen(Vokabel)
+comment3.params=pIndex
+comment3.target=Vokabel\ getVokabel(int)
+numComments=4

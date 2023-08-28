@@ -1,9 +1,12 @@
 #BlueJ class context
 comment0.target=Vokabeltrainer
+comment0.text=\r\n\ @author\ Pascal\r\n
 comment1.params=
 comment1.target=Vokabeltrainer()
-comment2.params=pScanner
-comment2.target=void\ VokabelAnlegen(java.util.Scanner)
-comment3.params=pScanner
-comment3.target=void\ einlesen(java.util.Scanner)
-numComments=4
+comment2.params=
+comment2.target=void\ vokabelAnlegen()
+comment3.params=
+comment3.target=void\ vokabelnLernen()
+comment4.params=
+comment4.target=void\ einlesen()
+numComments=5

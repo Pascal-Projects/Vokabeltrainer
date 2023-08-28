@@ -3,8 +3,8 @@
  */
 public class Vokabel
 {
-    private final String Fremdwort;
-    private final String Uebersetzung;
+    private String Fremdwort;
+    private String Uebersetzung;
 
     public Vokabel(String pFremdwort, String pUebersetzung)
     {

@@ -5,7 +5,7 @@ public class Fach
 {
     private Node first;
     private Node last;
-    private final int Limit;
+    private int Limit;
 
     public Fach(int pLimit){
         Limit = pLimit;

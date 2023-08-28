@@ -4,34 +4,52 @@ import java.util.Scanner;
  */
 public class Vokabeltrainer {
 
-    private final Fach[] Fächer = new Fach[5];
-    private final int letzteEingabe;
+    private Fach[] Fächer = new Fach[5];
+    private int letzteEingabe;
+
+    private Scanner scanner;
 
     public Vokabeltrainer() {
         Fächer[0] = new Fach(99999999);
         for (int i = 1; i < 5; i++) {
             Fächer[i] = new Fach(i * 20);
         }
-        
-        Scanner scanner = new Scanner(System.in);
 
+        scanner = new Scanner(System.in);
+
+        System.out.println("Willkommen beim Vokabeltrainer!");
 
         letzteEingabe = -1;
-        while (letzteEingabe != 0){
-            einlesen(scanner);
+        while (true) {
+            einlesen();
         }
     }
 
-    public void VokabelAnlegen(Scanner pScanner) {
+    public void vokabelAnlegen() {
         System.out.println("Fremdwort eingeben");
-        String fremdwort = pScanner.nextLine();
+        String fremdwort = scanner.next();
         System.out.println("Übersetzung eingeben");
-        String uebersetzung = pScanner.nextLine();
+        String uebersetzung = scanner.next();
         Fächer[0].VokabelHinzufügen(new Vokabel(fremdwort, uebersetzung));
     }
+
+    public void vokabelnLernen(){
+        System.out.println("Fremdwort: " + Fächer[0].getVokabel(0).getFremdwort());
+        System.out.println("Übersetzung: " + Fächer[0].getVokabel(0).getÜbersetzung());
+    }
     
-    public void einlesen(Scanner pScanner){
-        System.out.println("Willkommen beim Vokabeltrainer! \n \n Was wollen sie tun? \n \n(1) Vokabeln lernen \n(2) Vokabel hinzufügen");
-        
+    public void einlesen(){
+        System.out.println("Was wollen sie tun? \n \n(1) Vokabeln lernen \n(2) Vokabel hinzufügen \n(0) Vokabeltrainer verlassen");
+        letzteEingabe = scanner.nextInt();
+        if (letzteEingabe == 1 ){
+            vokabelnLernen();
+        } else if (letzteEingabe == 2) {
+            vokabelAnlegen();
+        } else if (letzteEingabe == 0) {
+            scanner.close();
+            System.exit(0);
+        } else {
+            System.out.println("Ungültige Eingabe");
+        }
     }
 }
