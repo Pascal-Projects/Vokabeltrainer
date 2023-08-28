@@ -20,7 +20,7 @@ public class Vokabeltrainer {
         System.out.println("Willkommen beim Vokabeltrainer!");
 
         letzteEingabe = -1;
-        while (true) {
+        while (letzteEingabe != 0) {
             einlesen();
         }
     }
@@ -57,6 +57,7 @@ public class Vokabeltrainer {
         } else if (letzteEingabe == 2) {
             vokabelAnlegen();
         } else if (letzteEingabe == 0) {
+            System.out.println("Test");
             scanner.close();
             System.exit(0);
         } else {
