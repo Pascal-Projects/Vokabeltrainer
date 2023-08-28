@@ -1,9 +1,11 @@
 import java.util.Scanner;
-
+/**
+ * @author Pascal
+ */
 public class Vokabeltrainer {
 
-    private Fach[] Fächer = new Fach[5];
-    private int letzteEingabe;
+    private final Fach[] Fächer = new Fach[5];
+    private final int letzteEingabe;
 
     public Vokabeltrainer() {
         Fächer[0] = new Fach(99999999);

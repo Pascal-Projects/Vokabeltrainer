@@ -2,6 +2,8 @@
 comment0.target=Vokabeltrainer
 comment1.params=
 comment1.target=Vokabeltrainer()
-comment2.params=
-comment2.target=void\ VokabelAnlegen()
-numComments=3
+comment2.params=pScanner
+comment2.target=void\ VokabelAnlegen(java.util.Scanner)
+comment3.params=pScanner
+comment3.target=void\ einlesen(java.util.Scanner)
+numComments=4

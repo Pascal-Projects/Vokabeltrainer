@@ -1,19 +1,32 @@
 import java.util.ArrayList;
-
+/**
+ * @author Pascal
+ */
 public class Fach
 {
-    private ArrayList<Vokabel> Vokabeln = new ArrayList<Vokabel>();
-    private int Limit;
+    private Node first;
+    private Node last;
+    private final int Limit;
 
     public Fach(int pLimit){
         Limit = pLimit;
     }
 
     public void VokabelHinzufügen(Vokabel pVokabel){
-        Vokabeln.add(pVokabel);
+        if(first == null){
+            first = new Node(pVokabel);
+            last = first;
+        } else {
+            last.setNext(new Node(pVokabel));
+            last = last.getNext();
+        }
     }
 
     public Vokabel getVokabel(int pIndex){
-        return Vokabeln.get(pIndex);
+        Node zeiger = first;
+        for (int i = 0; i < pIndex - 1; i++) {
+            zeiger = zeiger.getNext();
+        }
+        return zeiger.getVokabel();
     }
 }

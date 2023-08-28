@@ -1,7 +1,10 @@
+/**
+ * @author Pascal
+ */
 public class Vokabel
 {
-    private String Fremdwort;
-    private String Uebersetzung;
+    private final String Fremdwort;
+    private final String Uebersetzung;
 
     public Vokabel(String pFremdwort, String pUebersetzung)
     {
