@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Fach
+comment1.params=pLimit
+comment1.target=Fach(int)
+comment2.params=pVokabel
+comment2.target=void\ VokabelHinzuf\u00FCgen(Vokabel)
+numComments=3
