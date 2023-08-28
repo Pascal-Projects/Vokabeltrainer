@@ -31,6 +31,7 @@ public class Vokabeltrainer {
     }
     
     public void einlesen(Scanner pScanner){
+        System.out.println("Willkommen beim Vokabeltrainer! \n \n Was wollen sie tun? \n \n(1) Vokabeln lernen \n(2) Vokabel hinzufügen");
         
     }
 }

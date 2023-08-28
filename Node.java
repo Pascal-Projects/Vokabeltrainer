@@ -17,10 +17,6 @@ public class Node
         return vokabel;
     }
 
-    public void setVokabel(Vokabel vokabel) {
-        this.vokabel = vokabel;
-    }
-
     public Node getNext() {
         return next;
     }
