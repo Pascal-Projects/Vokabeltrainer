@@ -3,7 +3,12 @@
  */
 public class Fach
 {
+    public Node getFirst() {
+        return first;
+    }
+
     private Node first;
+
     private Node last;
     private int Limit;
 
@@ -21,11 +26,11 @@ public class Fach
         }
     }
 
-    public Vokabel getVokabel(int pIndex){
+    /* public Vokabel getVokabel(int pIndex){
         Node zeiger = first;
         for (int i = 0; i < pIndex - 1; i++) {
             zeiger = zeiger.getNext();
         }
         return zeiger.getVokabel();
-    }
+    }*/
 }

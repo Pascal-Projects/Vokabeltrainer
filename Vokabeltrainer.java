@@ -34,8 +34,19 @@ public class Vokabeltrainer {
     }
 
     public void vokabelnLernen(){
-        System.out.println("Fremdwort: " + Fächer[0].getVokabel(0).getFremdwort());
-        System.out.println("Übersetzung: " + Fächer[0].getVokabel(0).getÜbersetzung());
+        Node aktuell = Fächer[0].getFirst();
+        String antwort;
+        do {
+            System.out.println("Übersetze diese Vokabel: " + aktuell.getVokabel().getFremdwort());
+            antwort = scanner.next();
+            if (antwort.equals(aktuell.getVokabel().getÜbersetzung())){
+                System.out.println("Richtig!");
+            }
+            else {
+                System.out.println("Falsch!");
+            }
+            aktuell = aktuell.getNext();
+        } while (aktuell != null);
     }
     
     public void einlesen(){
