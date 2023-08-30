@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Diagram>
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
@@ -46,9 +44,3 @@
   <Categories>
     <Category>Constructors</Category>
     <Category>Fields</Category>
-    <Category>Methods</Category>
-  </Categories>
-  <SCOPE>All</SCOPE>
-  <VISIBILITY>private</VISIBILITY>
-</Diagram>
-
