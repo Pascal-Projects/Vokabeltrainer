@@ -1,4 +1,5 @@
 /out/
 *.class
+*.ctxt
 /.idea/
 Vokabeltrainer.iml
