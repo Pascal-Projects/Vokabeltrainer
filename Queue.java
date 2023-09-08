@@ -11,7 +11,7 @@
  * zuerst abgelegte Objekt wird als erstes wieder entnommen. Alle Methoden haben
  * eine konstante Laufzeit, unabhaengig von der Anzahl der verwalteten Objekte.
  * </p>
- *
+ * 
  * @author Qualitaets- und UnterstuetzungsAgentur - Landesinstitut fuer Schule
  * @version Generisch_02 2014-02-21
  */
@@ -27,7 +27,7 @@ public class Queue<ContentType> {
 		/**
 		 * Ein neues Objekt vom Typ QueueNode<ContentType> wird erschaffen.
 		 * Der Inhalt wird per Parameter gesetzt. Der Verweis ist leer.
-		 *
+		 * 
 		 * @param pContent das Inhaltselement des Knotens vom Typ ContentType
 		 */
 		public QueueNode(ContentType pContent) {
@@ -38,7 +38,7 @@ public class Queue<ContentType> {
 		/**
 		 * Der Verweis wird auf das Objekt, das als Parameter uebergeben wird,
 		 * gesetzt.
-		 *
+		 * 
 		 * @param pNext der Nachfolger des Knotens
 		 */
 		public void setNext(QueueNode pNext) {
@@ -47,7 +47,7 @@ public class Queue<ContentType> {
 
 		/**
 		 * Liefert das naechste Element des aktuellen Knotens.
-		 *
+		 * 
 		 * @return das Objekt vom Typ QueueNode, auf das der aktuelle Verweis zeigt
 		 */
 		public QueueNode getNext() {
@@ -56,7 +56,7 @@ public class Queue<ContentType> {
 
 		/**
 		 * Liefert das Inhaltsobjekt des Knotens vom Typ ContentType.
-		 *
+		 * 
 		 * @return das Inhaltsobjekt des Knotens
 		 */
 		public ContentType getContent() {
@@ -83,7 +83,7 @@ public class Queue<ContentType> {
 	/**
 	 * Die Anfrage liefert den Wert true, wenn die Schlange keine Objekte enthaelt,
 	 * sonst liefert sie den Wert false.
-	 *
+	 * 
 	 * @return true, falls die Schlange leer ist, sonst false
 	 */
 	public boolean isEmpty() {
@@ -93,8 +93,9 @@ public class Queue<ContentType> {
 	/**
 	 * Das Objekt pContentType wird an die Schlange angehaengt.
 	 * Falls pContentType gleich null ist, bleibt die Schlange unveraendert.
-	 *
-	 * @param pContent das anzuhaengende Objekt vom Typ ContentType
+	 * 
+	 * @param pContent
+	 *                 das anzuhaengende Objekt vom Typ ContentType
 	 */
 	public void enqueue(ContentType pContent) {
 		if (pContent != null) {
@@ -129,7 +130,7 @@ public class Queue<ContentType> {
 	 * Falls die Schlange leer ist, wird null zurueckgegeben.
 	 *
 	 * @return das erste Objekt der Schlange vom Typ ContentType oder null,
-	 * falls die Schlange leer ist
+	 *         falls die Schlange leer ist
 	 */
 	public ContentType front() {
 		if (this.isEmpty()) {
