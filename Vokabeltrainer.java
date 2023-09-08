@@ -5,10 +5,10 @@ import java.util.Scanner;
  */
 public class Vokabeltrainer {
 
-    private Fach[] faecher = new Fach[5];
+    private final Fach[] faecher = new Fach[5];
     private int letzteEingabe;
 
-    private Scanner scanner;
+    private final Scanner scanner;
 
     public Vokabeltrainer() {
         faecher[0] = new Fach(99999999);

@@ -2,9 +2,9 @@
  * @author Pascal
  */
 public class Fach {
-    private Queue<Vokabel> vokabeln;
+    private final Queue<Vokabel> vokabeln;
 
-    private int limit;
+    private final int limit;
     private int counter;
 
     public Fach(int pLimit) {
