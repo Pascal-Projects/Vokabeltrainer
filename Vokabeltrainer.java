@@ -5,10 +5,10 @@ import java.util.Scanner;
  */
 public class Vokabeltrainer {
 
-    private Fach[] faecher = new Fach[5];
+    private final Fach[] faecher = new Fach[5];
     private int letzteEingabe;
 
-    private Scanner scanner;
+    private final Scanner scanner;
 
     public Vokabeltrainer() {
         faecher[0] = new Fach(99999999);
@@ -70,7 +70,12 @@ public class Vokabeltrainer {
     public void einlesen() {
         System.out.println(
                 "Was wollen sie tun? \n \n(1) Vokabeln lernen \n(2) Vokabel hinzufügen \n(0) Vokabeltrainer verlassen");
-        letzteEingabe = scanner.nextInt();
+        String letzteEingabeString = scanner.next();
+        try {
+            letzteEingabe = Integer.parseInt(letzteEingabeString);
+        } catch (NumberFormatException nfe) {
+            letzteEingabe = -1;
+        }
         if (letzteEingabe == 1) {
             vokabelnLernen();
         } else if (letzteEingabe == 2) {
