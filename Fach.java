@@ -1,36 +1,36 @@
 /**
  * @author Pascal
  */
-public class Fach
-{
-    public Node getFirst() {
-        return first;
+public class Fach {
+    private Queue<Vokabel> vokabeln;
+
+    private int limit;
+    private int counter;
+
+    public Fach(int pLimit) {
+        limit = pLimit;
+        vokabeln = new Queue<>();
     }
 
-    private Node first;
-
-    private Node last;
-    private int Limit;
-
-    public Fach(int pLimit){
-        Limit = pLimit;
+    public void VokabelHinzufügen(Vokabel pVokabel) {
+        vokabeln.enqueue(pVokabel);
+        counter++;
     }
 
-    public void VokabelHinzufügen(Vokabel pVokabel){
-        if(first == null){
-            first = new Node(pVokabel);
-            last = first;
-        } else {
-            last.setNext(new Node(pVokabel));
-            last = last.getNext();
-        }
+    public void deleteFirst() {
+        vokabeln.dequeue();
+        counter--;
     }
 
-    /* public Vokabel getVokabel(int pIndex){
-        Node zeiger = first;
-        for (int i = 0; i < pIndex - 1; i++) {
-            zeiger = zeiger.getNext();
-        }
-        return zeiger.getVokabel();
-    }*/
+    public Vokabel getFirst() {
+        return vokabeln.front();
+    }
+
+    public boolean isLimitExceeded() {
+        return counter >= limit;
+    }
+
+    public boolean isEmpty(){
+        return getFirst() == null;
+    }
 }

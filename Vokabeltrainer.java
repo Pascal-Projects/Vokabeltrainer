@@ -1,18 +1,19 @@
 import java.util.Scanner;
+
 /**
  * @author Pascal
  */
 public class Vokabeltrainer {
 
-    private Fach[] Fächer = new Fach[5];
+    private Fach[] faecher = new Fach[5];
     private int letzteEingabe;
 
     private Scanner scanner;
 
     public Vokabeltrainer() {
-        Fächer[0] = new Fach(99999999);
+        faecher[0] = new Fach(99999999);
         for (int i = 1; i < 5; i++) {
-            Fächer[i] = new Fach(i * 20);
+            faecher[i] = new Fach(i * 20);
         }
 
         scanner = new Scanner(System.in);
@@ -30,29 +31,52 @@ public class Vokabeltrainer {
         String fremdwort = scanner.next();
         System.out.println("Übersetzung eingeben");
         String uebersetzung = scanner.next();
-        Fächer[0].VokabelHinzufügen(new Vokabel(fremdwort, uebersetzung));
+        faecher[0].VokabelHinzufügen(new Vokabel(fremdwort, uebersetzung));
     }
 
-    public void vokabelnLernen(){
-        Node aktuell = Fächer[0].getFirst();
-        String antwort;
-        do {
-            System.out.println("Übersetze diese Vokabel: " + aktuell.getVokabel().getFremdwort());
-            antwort = scanner.next();
-            if (antwort.equals(aktuell.getVokabel().getÜbersetzung())){
-                System.out.println("Richtig!");
+    public void vokabelnLernen() {
+        for (int i= 4; i > 0; i--){
+            if (faecher[i].isLimitExceeded()){
+                fachLernen(i);  
             }
-            else {
-                System.out.println("Falsch!");
-            }
-            aktuell = aktuell.getNext();
-        } while (aktuell != null);
+            System.out.println(i);
+        }
+        if (!faecher[0].isEmpty()){
+            fachLernen(0);
+        }
     }
-    
-    public void einlesen(){
-        System.out.println("Was wollen sie tun? \n \n(1) Vokabeln lernen \n(2) Vokabel hinzufügen \n(0) Vokabeltrainer verlassen");
-        letzteEingabe = scanner.nextInt();
-        if (letzteEingabe == 1 ){
+
+    public void fachLernen(int i) {
+        String antwort;
+        while (faecher[i].getFirst() != null) {
+            System.out.println("Übersetze diese Vokabel: " + faecher[i].getFirst().getFremdwort());
+            antwort = scanner.next();
+            if (antwort.equals(faecher[i].getFirst().getÜbersetzung())) {
+                System.out.println("Richtig!");
+                if (i != 4) {
+                    faecher[i + 1].VokabelHinzufügen(faecher[i].getFirst());
+                    faecher[i].deleteFirst();
+                }
+            } else {
+                System.out.println("Falsch!");
+                if (i != 4) {
+                    faecher[0].VokabelHinzufügen(faecher[i].getFirst());
+                    faecher[i].deleteFirst();
+                }
+            }
+        }
+    }
+
+    public void einlesen() {
+        System.out.println(
+                "Was wollen sie tun? \n \n(1) Vokabeln lernen \n(2) Vokabel hinzufügen \n(0) Vokabeltrainer verlassen");
+        String letzteEingabeString = scanner.next();
+        try {
+            letzteEingabe = Integer.parseInt(letzteEingabeString);
+        } catch (NumberFormatException e) {
+            letzteEingabe = -1;
+        }
+        if (letzteEingabe == 1) {
             vokabelnLernen();
         } else if (letzteEingabe == 2) {
             vokabelAnlegen();
