@@ -15,14 +15,15 @@
  * @author Qualitaets- und UnterstuetzungsAgentur - Landesinstitut fuer Schule
  * @version Generisch_02 2014-02-21
  */
-public class Queue<ContentType> {
+@SuppressWarnings("ALL")
+public class Queue<ContentType> implements java.io.Serializable {
 
 	/* --------- Anfang der privaten inneren Klasse -------------- */
 
-	private class QueueNode {
+	public class QueueNode implements java.io.Serializable {
 
-		private ContentType content = null;
-		private QueueNode nextNode = null;
+		private ContentType content;
+		private QueueNode nextNode;
 
 		/**
 		 * Ein neues Objekt vom Typ QueueNode<ContentType> wird erschaffen.
@@ -138,5 +139,9 @@ public class Queue<ContentType> {
 		} else {
 			return head.getContent();
 		}
+	}
+
+	public QueueNode first() {
+		return head;
 	}
 }

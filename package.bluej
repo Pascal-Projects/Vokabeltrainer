@@ -1,12 +1,12 @@
 #BlueJ package file
-dependency1.from=Main
-dependency1.to=Vokabeltrainer
+dependency1.from=Fach
+dependency1.to=Queue
 dependency1.type=UsesDependency
 dependency2.from=Fach
-dependency2.to=Queue
+dependency2.to=Vokabel
 dependency2.type=UsesDependency
-dependency3.from=Fach
-dependency3.to=Vokabel
+dependency3.from=Main
+dependency3.to=Vokabeltrainer
 dependency3.type=UsesDependency
 dependency4.from=Vokabeltrainer
 dependency4.to=Fach

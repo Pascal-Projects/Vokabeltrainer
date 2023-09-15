@@ -1,7 +1,8 @@
 /**
  * @author Pascal
  */
-public class Fach {
+
+public class Fach implements java.io.Serializable {
     private Queue<Vokabel> vokabeln;
 
     private int limit;
@@ -9,10 +10,10 @@ public class Fach {
 
     public Fach(int pLimit) {
         limit = pLimit;
-        vokabeln = new Queue<Vokabel>();
+        vokabeln = new Queue<>();
     }
 
-    public void VokabelHinzufügen(Vokabel pVokabel) {
+    public void VokabelHinzufuegen(Vokabel pVokabel) {
         vokabeln.enqueue(pVokabel);
         counter++;
     }
@@ -26,19 +27,15 @@ public class Fach {
         return vokabeln.front();
     }
 
+    public Queue<Vokabel>.QueueNode getFirstNode() {
+        return vokabeln.first();
+    }
+
     public boolean isLimitExceeded() {
-        if (counter >= limit) {
-            return true;
-        } else {
-            return false;
-        }
+        return counter >= limit;
     }
 
     public boolean isEmpty(){
-        if (getFirst() == null){
-            return true;
-        } else {
-            return false;
-        }
+        return getFirst() == null;
     }
 }

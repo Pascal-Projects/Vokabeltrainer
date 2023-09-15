@@ -1,22 +1,20 @@
 /**
  * @author Pascal
  */
-public class Vokabel
-{
+public class Vokabel implements java.io.Serializable {
     private String Fremdwort;
     private String Uebersetzung;
 
-    public Vokabel(String pFremdwort, String pUebersetzung)
-    {
+    public Vokabel(String pFremdwort, String pUebersetzung) {
         Fremdwort = pFremdwort;
         Uebersetzung = pUebersetzung;
     }
 
-    public String getÜbersetzung(){
+    public String getUebersetzung() {
         return Uebersetzung;
     }
 
-    public String getFremdwort(){
+    public String getFremdwort() {
         return Fremdwort;
     }
 }
