@@ -44,6 +44,7 @@ public class Vokabeltrainer {
     }
 
     public void speichern() {
+        /* Funktioniert nicht vollständig */
         try {
             for (int i = 0; i < 5; i++) {
                 FileWriter fileWriter = new FileWriter("fächer/fach" + (i + 1) + ".txt");
@@ -54,12 +55,9 @@ public class Vokabeltrainer {
                                 current.getContent().getFremdwort() + "," + current.getContent().getUebersetzung());
 
                     } while (current.getNext() != null);
-                } else {
-                    System.out.println("Keine Vokabel zum speichern! (" + (i + 1) + ")");
                 }
                 fileWriter.close();
             }
-
         } catch (Exception e) {
             System.out.println("Speichern fehlgeschlagen");
         }
@@ -85,40 +83,6 @@ public class Vokabeltrainer {
         }
     }
 
-    /* public void speichernAlt() {
-        try {
-            for (int i = 0; i < 5; i++) {
-                FileOutputStream out = new FileOutputStream("fächer\\fach" + (i + 1) + ".txt");
-                ObjectOutputStream oos = new ObjectOutputStream(out);
-
-                oos.writeObject(faecher[i]);
-
-                out.close();
-                oos.close();
-            }
-        } catch (IOException e) {
-            System.out.println("Speichern fehlgeschlagen");
-            e.printStackTrace();
-        }
-    } */
-
-    /* public void ladenAlt() {
-        try {
-            for (int i = 0; i < 5; i++) {
-                FileInputStream in = new FileInputStream("fächer\\fach" + (i + 1) + ".txt");
-                ObjectInputStream fis = new ObjectInputStream(in);
-
-                faecher[i] = (Fach) fis.readObject();
-
-                in.close();
-                fis.close();
-            }
-        } catch (Exception e) {
-            System.out.println("Laden fehlgeschlagen");
-            e.printStackTrace();
-        }
-    } */
-
     public void vokabelAnlegen() {
         System.out.println("Fremdwort eingeben");
         String fremdwort = scanner.next();
@@ -142,17 +106,21 @@ public class Vokabeltrainer {
 
     public void fachLernen(int i) {
         String antwort;
+        System.out.println("Geben sie \"ENDE\" ein um das lernen zu beenden");
         while (faecher[i].getFirst() != null) {
             System.out.println("Übersetze diese Vokabel: " + faecher[i].getFirst().getFremdwort());
             antwort = scanner.next();
             if (antwort.equals(faecher[i].getFirst().getUebersetzung())) {
                 System.out.println("Richtig!");
+                faecher[i].deleteFirst();
                 if (i != 4) {
                     faecher[i + 1].VokabelHinzufuegen(faecher[i].getFirst());
-                    faecher[i].deleteFirst();
                 }
-            } else {
-                System.out.println("Falsch!");
+            } else if (antwort.equals("ENDE")) {
+                break;
+            }
+            else {
+                System.out.println("Falsch! Die richtige Antwort wäre: " + faecher[i].getFirst().getUebersetzung());
                 if (i != 4) {
                     faecher[0].VokabelHinzufuegen(faecher[i].getFirst());
                     faecher[i].deleteFirst();
@@ -160,11 +128,12 @@ public class Vokabeltrainer {
             }
             speichern();
         }
+        speichern();
     }
 
     public void einlesen() {
-        System.out.println(
-                "Was wollen sie tun? \n \n(1) Vokabeln lernen \n(2) Vokabel hinzufügen \n(0) Vokabeltrainer verlassen");
+        String hauptMenue = "Hauptmenü \n********* \nWas wollen sie tun? \n \n(1) Vokabeln lernen \n(2) Vokabel hinzufügen \n(0) Vokabeltrainer verlassen";
+        System.out.println(hauptMenue.replaceAll("[\r]", ""));
         String letzteEingabeString = scanner.next();
         try {
             letzteEingabe = Integer.parseInt(letzteEingabeString);
